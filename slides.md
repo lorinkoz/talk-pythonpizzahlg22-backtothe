@@ -42,6 +42,10 @@ layout: true
 
 --
 
+![Diagrama de módulos](images/promise-of-apps.png)
+
+---
+
 ![Meme de varios Spiderman apuntándose unos a otros](images/spidermen.png)
 
 ???
@@ -59,6 +63,10 @@ layout: true
 ---
 
 --
+
+![Diagrama MER de usuario y perfil](images/user-profile.png)
+
+---
 
 ![Truco de halar el mantel con copas en la mesa](images/tablecloth.jpeg)
 
