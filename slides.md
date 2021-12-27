@@ -54,7 +54,7 @@ layout: true
 
 layout: true
 
-## django.contrib.auth.models.User
+## Aléjate de django.contrib.auth.models.User
 
 ---
 
@@ -67,13 +67,13 @@ layout: true
 -   Siempre necesitamos personalizar el modelo User
 -   La idea de usar un Profile es un workaround para una limitación del pasado cuando no se podían usar custom models
 -   Cambiar de modelo de usuario en la marcha es complicado
--   Moraleja: Empieza de cero con un User model personalizado
+-   Moraleja: Empieza de cero con un User model personalizado, siempre puedes heredar del modelo básico y modificar a partir de ahí
 
 ---
 
 layout: true
 
-## Fat models?
+## Pon los modelos a dieta
 
 ---
 
@@ -92,7 +92,7 @@ layout: true
 
 layout: true
 
-## El dilema de la validación
+## Valida en la capa de entrada
 
 ---
 
@@ -112,7 +112,7 @@ layout: true
 
 layout: true
 
-## Donde dije Models, digo Queries
+## Models no, Queries
 
 ---
 
