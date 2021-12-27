@@ -22,42 +22,110 @@ class: middle center
 
 class: middle center
 
-![Back to the Future logo](images/film-logo.png)
+![Logo de Back to the Future](images/film-logo.png)
 
 ---
 
-# Django apps
+template: title
 
--   Las apps de Django no son lo que parecen
+--
 
----
-
-# django.contrib.auth.models.User
-
--   Empieza de cero con un User model personalizado
+7+ cosas que el yo del presente quisiera decirle al yo del pasado al empezar un projecto de Django de cero
 
 ---
 
-# Fat models?
+layout: true
 
--   El modelo no es realmente el lugar perfecto para poner toda la lógica del negocio
-
----
-
-# El dilema de la validación
-
--   Valida en la capa de entrada del usuario
+## Django apps
 
 ---
 
-# Donde dije Models, digo Queries
+--
+
+![Meme de varios Spiderman apuntándose unos a otros](images/spidermen.png)
+
+???
+
+Las apps de Django no son lo que parecen
+
+---
+
+layout: true
+
+## django.contrib.auth.models.User
+
+---
+
+--
+
+![Truco de halar el mantel con copas en la mesa](images/tablecloth.jpeg)
+
+???
+
+Empieza de cero con un User model personalizado
+
+---
+
+layout: true
+
+## Fat models?
+
+---
+
+--
+
+![Escena del dibujo animado Flopi](images/flopi.png)
+
+???
+
+El modelo no es realmente el lugar perfecto para poner toda la lógica del negocio
+
+---
+
+layout: true
+
+## El dilema de la validación
+
+---
+
+--
+
+![Truco del huevo flotante](images/eggs-water.jpeg)
+
+???
+
+Valida en la capa de entrada del usuario
+
+---
+
+layout: true
+
+## Donde dije Models, digo Queries
+
+---
+
+--
+
+![Hombre con la cara llena de postits](images/postit-man.jpeg)
+
+???
 
 -   Piensa en Queries, no en Models
 -   Usa los Managers y Queries
 
 ---
 
-# Rompe la base de datos
+layout: true
+
+## Rompe la base de datos
+
+---
+
+--
+
+![Meme de Keep calm and drop database](images/drop-database.png)
+
+???
 
 -   Relaja la base de datos
 -   Evita las restricciones
@@ -65,15 +133,31 @@ class: middle center
 
 ---
 
-# Otras pequeñas cosas
+layout: true
+
+## Otras pequeñas cosas
+
+---
+
+--
 
 -   Escribe tests, optimiza los tests
 
 ---
 
-# No todo lo que brilla es oro
+layout: true
 
--   Cuidado con la "buenas prácticas" que aparecen por ahí
+---
+
+## No todo lo que brilla es oro
+
+--
+
+![Meme de tiburón con dientes de oro](images/shark-golden-teeth.jpeg)
+
+???
+
+Cuidado con la "buenas prácticas" que aparecen por ahí
 
 ---
 
