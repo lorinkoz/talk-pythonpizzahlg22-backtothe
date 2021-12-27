@@ -30,7 +30,7 @@ template: title
 
 --
 
-7+ cosas que el yo del presente quisiera decirle al yo del pasado al empezar un projecto de Django de cero
+7️⃣ cosas que el yo del presente quisiera decirle al yo del pasado al empezar un projecto de Django de cero
 
 ---
 
@@ -40,19 +40,32 @@ layout: true
 
 ---
 
---
-
-![Diagrama de módulos](images/promise-of-apps.png)
-
 ---
 
-![Meme de varios Spiderman apuntándose unos a otros](images/spidermen.png)
+.center[![Diagrama de módulos](images/promise-of-apps.png)]
 
 ???
 
--   Pensamos que las apps proveen de separación lógica
--   Terminamos con apps espaguettis, límites difusos, migraciones enredadas
--   Moraleja: Una sola app es suficiente para empezar
+Pensamos que las apps proveen de separación lógica.
+
+---
+
+.center[![Meme de varios Spiderman apuntándose unos a otros](images/spidermen.png)]
+
+???
+
+Terminamos con apps espaguettis, límites difusos, migraciones enredadas.
+
+---
+
+layout: false
+class: middle center
+
+# Una sola app es suficiente para empezar
+
+???
+
+Las aplicaciones son buenas para paquetes instalables, pero no lo son en la mayoría de los casos para separación lógica de módulos dentro de un proyecto.
 
 ---
 
@@ -62,51 +75,87 @@ layout: true
 
 ---
 
---
-
-![Diagrama MER de usuario y perfil](images/user-profile.png)
-
 ---
 
-![Truco de halar el mantel con copas en la mesa](images/tablecloth.jpeg)
+<br/>
+
+.center[![Diagrama MER de usuario y perfil](images/user-profile.png)]
 
 ???
 
--   Siempre necesitamos personalizar el modelo User
--   La idea de usar un Profile es un workaround para una limitación del pasado cuando no se podían usar custom models
--   Cambiar de modelo de usuario en la marcha es complicado
--   Moraleja: Empieza de cero con un User model personalizado, siempre puedes heredar del modelo básico y modificar a partir de ahí
+Al principio, Django no permitía usar un modelo usuario personalizado.
+Había que usar un modelo Profile.
+Eso es cosa del pasado (desde Django 1.7)
+
+---
+
+.center[![Truco de halar el mantel con copas en la mesa](images/tablecloth.jpeg)]
+
+???
+
+Siempre necesitamos personalizar el modelo User.
+Cambiar de modelo de usuario en la marcha es complicado.
+
+---
+
+layout: false
+class: middle center
+
+# Empieza de cero con un User personalizado
 
 ---
 
 layout: true
 
-## Pon los modelos a dieta
+## Model.clean te va a decepcionar
 
 ---
+
+---
+
+.center[![Truco del huevo flotante](images/eggs-water.jpeg)]
+
+---
+
+<br/>
+
+> Validar un huevo es fácil,
+> <br/>un cartón son otros .strike[20 ]300 pesos.
+> <br/> .center[---Anónimo]
+
+---
+
+.left-column[
+
+##### .blue[Persistencia]
+
+```python
+Model.clean()
+```
+
+]
+
+.right-column[
+
+##### .blue[Entrada]
+
+```python
+Form.clean()
+Serializer.validate()
+```
+
+]
 
 --
 
-![Escena del dibujo animado Flopi](images/flopi.png)
-
-???
-
--   MVC, MVT, y pareciera que el modelo es el HQ de TODA la lógica del negocio
--   Cuando la lógica necesita varios modelos, la idea empieza a quebrarse, problemas de optimización, etc.
--   Pueden usarse funciones utilitarias (servicios) para lógica de negocio con varios modelos
--   Moraleja: ver más el modelo como capa de acceso a datos que como capa de negocio
+.right-column-33[☝️ ☝️]
 
 ---
 
-layout: true
+layout: false
+class: middle center
 
-## Valida en la capa de entrada
-
----
-
---
-
-![Truco del huevo flotante](images/eggs-water.jpeg)
+# Valida en la capa de entrada
 
 ???
 
@@ -114,19 +163,50 @@ layout: true
 -   Para validar un modelo, Model.clean es una quimera, no es posible validar varios modelos
 -   Opinión: La validación de negocio va en la capa de entrada del usuario (serializers, forms)
 -   Si hay forms y serializers en tandem, extrae lógica a funciones utilitarias
--   Moraleja: Mueve toda la validación posible a la capa de entrada
 
 ---
 
 layout: true
 
-## Models no, Queries
+## Las Queries son tus amigas
 
 ---
 
+---
+
+background-image: url(images/invoice.png)
+
+---
+
+.left-column[![Hombre con la cara llena de postits](images/postit-man.jpeg)]
+
 --
 
-![Hombre con la cara llena de postits](images/postit-man.jpeg)
+.right-column[
+.strike[`Model.objects.all()`]
+
+```
+Model.objects
+    .select_related(🚂)
+    .prefetch_related(🏠)
+    .annotate(🐘)
+```
+
+]
+
+---
+
+layout: false
+class: middle center
+
+# Usa managers y queries personalizadas
+
+---
+
+layout: false
+class: middle center
+
+# Piensa más en queries que en models
 
 ???
 
@@ -134,7 +214,6 @@ layout: true
 -   Es fácil caer en N+1 cuando nos dejamos llevar por las bondades del ORM
 -   Pronto la noción de responder con un modelo es remplazada por la noción de responder con una consulta
 -   Django tiene Managers y Queries para encapsular lógica de consulta
--   Moraleja: piensa en queries, no en models
 
 ---
 
@@ -144,16 +223,45 @@ layout: true
 
 ---
 
+---
+
+.center[![Meme de Keep calm and drop database](images/drop-database.png)]
+
+---
+
+##### .blue[Tres fuentes de decepción]
+
 --
 
-![Meme de Keep calm and drop database](images/drop-database.png)
+-   `unique=True` y `unique_together` me dan protección
+
+--
+
+-   si pongo `null=True blank=True` se rompe
+
+--
+
+-   la 🌈 felicidad es una base de datos normalizada
+
+---
+
+layout: false
+class: middle center
+
+# No resuelvas en la base de datos lo que puedes resolver en código
+
+---
+
+layout: false
+class: middle center
+
+# Optimización >> Normalización
 
 ???
 
 -   Nos enseñaron a poner constraints, null=False, y a normalizar la BD
 -   A veces se necesita tener datos "inconsistentes" y reaccionar a ellos
 -   Es mejor resolver un problema de código que un problema de datos
--   Moraleja: evita las restricciones, denormaliza sin miedo, abraza los valores nulos
 
 ---
 
@@ -163,22 +271,25 @@ layout: true
 
 ---
 
+---
+
+-   Escribe tests, optimízalos
+
 --
 
--   Escribe tests, optimiza los tests
--   Evita usar las signals, pero si tienes que hacerlo, hazlo
+-   No uses signals, a menos que sea necesario
 
 ---
 
 layout: true
 
----
-
 ## No todo lo que brilla es oro
 
---
+---
 
-![Meme de tiburón con dientes de oro](images/shark-golden-teeth.jpeg)
+---
+
+.center[![Meme de tiburón con dientes de oro](images/shark-golden-teeth.jpeg)]
 
 ???
 
