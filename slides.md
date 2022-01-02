@@ -1,3 +1,9 @@
+class: middle center
+
+![Logo de Python Pizza](images/python-pizza.png)
+
+---
+
 ## 👋 Hola
 
 .left-column-66[
@@ -36,9 +42,47 @@ template: title
 
 layout: true
 
+## Lista de viaje al pasado
+
+---
+
+---
+
+.left-column-66[
+
+1. Apps
+2. `auth.User`
+3. `Model.clean`
+4. Queries
+5. Idealismo en la BD
+6. Otras pequeñas cosas
+7. A quién escuchar
+
+]
+
+--
+
+.right-column-33[![Cerdo en moto con casco](images/piggie.png)]
+
+---
+
+layout: true
+
 ## Las apps de Django no son lo que parecen
 
 ---
+
+---
+
+<br/>
+
+.center[
+
+```shell
+python manage.py startapp <app>
+```
+
+]
 
 ---
 
@@ -78,6 +122,8 @@ layout: true
 ---
 
 <br/>
+
+##### .center[Antes de Django 1.5 ]
 
 .center[![Diagrama MER de usuario y perfil](images/user-profile.png)]
 
@@ -199,14 +245,14 @@ Model.objects
 layout: false
 class: middle center
 
-# Usa managers y queries personalizadas
+# Piensa más en queries que en models
 
 ---
 
 layout: false
 class: middle center
 
-# Piensa más en queries que en models
+# Usa managers y queries personalizadas
 
 ???
 
@@ -277,7 +323,19 @@ layout: true
 
 --
 
--   No uses signals, a menos que sea necesario
+-   `assertNumQueries` existe y es muy útil
+
+--
+
+-   Usa signals, pero como último recurso
+
+--
+
+-   No reinventes la rueda ni descubras el agua tibia
+
+--
+
+-   Ni `pipenv` ni `poetry` son la panacea 🔥
 
 ---
 
