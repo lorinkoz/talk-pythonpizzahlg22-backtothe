@@ -88,17 +88,9 @@ python manage.py startapp <app>
 
 .center[![Diagrama de módulos](images/promise-of-apps.png)]
 
-???
-
-Pensamos que las apps proveen de separación lógica.
-
 ---
 
 .center[![Meme de varios Spiderman apuntándose unos a otros](images/spidermen.png)]
-
-???
-
-Terminamos con apps espaguettis, límites difusos, migraciones enredadas.
 
 ---
 
@@ -106,10 +98,6 @@ layout: false
 class: middle center
 
 # Una sola app es suficiente para empezar
-
-???
-
-Las aplicaciones son buenas para paquetes instalables, pero no lo son en la mayoría de los casos para separación lógica de módulos dentro de un proyecto.
 
 ---
 
@@ -127,20 +115,9 @@ layout: true
 
 .center[![Diagrama MER de usuario y perfil](images/user-profile.png)]
 
-???
-
-Al principio, Django no permitía usar un modelo usuario personalizado.
-Había que usar un modelo Profile.
-Eso es cosa del pasado (desde Django 1.7)
-
 ---
 
 .center[![Truco de halar el mantel con copas en la mesa](images/tablecloth.jpeg)]
-
-???
-
-Siempre necesitamos personalizar el modelo User.
-Cambiar de modelo de usuario en la marcha es complicado.
 
 ---
 
@@ -203,13 +180,6 @@ class: middle center
 
 # Valida en la capa de entrada
 
-???
-
--   Los model fields son buenos para validar valores aislados
--   Para validar un modelo, Model.clean es una quimera, no es posible validar varios modelos
--   Opinión: La validación de negocio va en la capa de entrada del usuario (serializers, forms)
--   Si hay forms y serializers en tandem, extrae lógica a funciones utilitarias
-
 ---
 
 layout: true
@@ -254,13 +224,6 @@ class: middle center
 
 # Usa managers y queries personalizadas
 
-???
-
--   En la respuesta al usuario muchas veces se necesitan datos de varios modelos, o agregaciones
--   Es fácil caer en N+1 cuando nos dejamos llevar por las bondades del ORM
--   Pronto la noción de responder con un modelo es remplazada por la noción de responder con una consulta
--   Django tiene Managers y Queries para encapsular lógica de consulta
-
 ---
 
 layout: true
@@ -275,19 +238,19 @@ layout: true
 
 ---
 
-##### .blue[Tres fuentes de decepción]
+##### .blue[Rompe tu manera de pensar en la base de datos]
 
 --
 
--   `unique=True` y `unique_together` me dan protección
+-   no siempre necesitas `unique=True` y `unique_together`
 
 --
 
--   si pongo `null=True blank=True` se rompe
+-   se puede tener `null=True` aunque el campo sea "requerido"
 
 --
 
--   la 🌈 felicidad es una base de datos normalizada
+-   la 🌈 felicidad **NO** es una base de datos normalizada
 
 ---
 
@@ -302,12 +265,6 @@ layout: false
 class: middle center
 
 # Optimización >> Normalización
-
-???
-
--   Nos enseñaron a poner constraints, null=False, y a normalizar la BD
--   A veces se necesita tener datos "inconsistentes" y reaccionar a ellos
--   Es mejor resolver un problema de código que un problema de datos
 
 ---
 
@@ -348,12 +305,6 @@ layout: true
 ---
 
 .center[![Meme de tiburón con dientes de oro](images/shark-golden-teeth.jpeg)]
-
-???
-
--   No todo lo que se presenta como buena práctica es realmente una buena práctica
--   Escoge tus fuentes de respeto
--   Si necesitas hacerlo, olvida todo lo que te he dicho aquí (yo mismo lo haré si lo necesito)
 
 ---
 
