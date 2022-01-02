@@ -11,7 +11,7 @@ class: middle center
 #### Lorenzo Peña
 
 -   Oriental de Holguín
--   Djangonauta hace 12 años
+-   Djangonauto hace 12 años
 -   Fan de la pizza con atún
 
 ]
@@ -50,13 +50,13 @@ layout: true
 
 .left-column-66[
 
-1. Apps
-2. `auth.User`
-3. `Model.clean`
-4. Queries
+1. Aplicaciones
+2. Usuarios
+3. Validación
+4. Consultas
 5. Idealismo en la BD
-6. Otras pequeñas cosas
-7. A quién escuchar
+6. Cosas sueltas
+7. Buenas prácticas
 
 ]
 
